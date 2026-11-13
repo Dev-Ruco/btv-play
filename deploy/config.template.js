@@ -1,0 +1,1 @@
+window.BTV_CONFIG={url:"${BTV_SUPABASE_URL}",anonKey:"${BTV_SUPABASE_ANON_KEY}"};

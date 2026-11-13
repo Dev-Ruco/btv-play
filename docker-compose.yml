@@ -1,0 +1,9 @@
+services:
+  btv-play:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "${BTV_PORT:-8086}:80"
+    environment:
+      BTV_SUPABASE_URL: ${BTV_SUPABASE_URL}
+      BTV_SUPABASE_ANON_KEY: ${BTV_SUPABASE_ANON_KEY}
