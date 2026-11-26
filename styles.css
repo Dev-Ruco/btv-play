@@ -199,3 +199,6 @@ footer{padding:24px 5%;gap:12px}
 .hero-carousel .xiluva-copy{z-index:2;text-align:center;padding:42px 6% 22px}
 }
 @media(prefers-reduced-motion:reduce){.hero-carousel .hero-slide{transition:none}}
+
+/* Discrete controls over the hero; no additional bar. */
+.hero-carousel .hero-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:4;display:flex;gap:2px;background:#21112d80;border-radius:30px;padding:0 5px}.hero-dots[hidden]{display:none!important}.hero-dots button{width:44px;height:44px;display:grid;place-items:center;background:transparent;border:0;padding:0;border-radius:50%}.hero-dots button::before{content:"";width:9px;height:9px;border-radius:50%;background:#ffffffa6}.hero-dots button[aria-current=true]::before{background:#f8ce59;width:12px;height:12px}.hero-dots button:focus-visible{outline:2px solid #f8ce59}.hero-carousel .hero-slide{transition:opacity .4s ease,visibility .4s}.hero-carousel .xiluva-copy{padding-bottom:66px}@media(max-width:900px){.hero-carousel .hero-feature .hero-text{padding-bottom:70px}.hero-carousel .hero-dots{bottom:8px}}@media(prefers-reduced-motion:reduce){.hero-carousel .hero-slide{transition:none}}
