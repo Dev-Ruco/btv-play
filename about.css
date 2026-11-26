@@ -1,3 +1,29 @@
-#sobre.about-editorial{background:#fff;padding-block:clamp(46px,7vw,100px)}.about-editorial-top{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,5vw,80px);align-items:center;margin-bottom:40px}.about-editorial .about-intro{margin:0;max-width:650px}.about-editorial h2{border:0;padding:0;font-size:clamp(32px,4vw,56px);letter-spacing:-.045em;line-height:1.1;margin:12px 0 24px}.about-editorial h2 em{font-style:normal;color:#882d8e}.about-editorial-image{margin:0;position:relative;overflow:hidden;border-radius:16px;background:#482052}.about-editorial-image img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.about-editorial-image figcaption{position:absolute;bottom:0;left:0;right:0;padding:28px 18px 14px;background:linear-gradient(transparent,#21112ddd);color:#fff;font-size:13px;font-weight:700}.about-editorial .about-pillars{gap:clamp(20px,4vw,50px);padding-block:25px;border-top:1px solid #e8dce9;border-bottom:1px solid #e8dce9}.about-editorial .about-pillars article{background:none;border:0;border-radius:0;padding:8px 0;box-shadow:none}.about-editorial .about-pillars article:hover{transform:none;box-shadow:none}.about-editorial .pillar-number{color:#882d8e}.about-editorial .about-leadership{padding:0;gap:0;background:#482052;overflow:hidden;margin-top:44px;align-items:stretch}.about-editorial .director-portrait{width:34%;max-width:340px;border-radius:0;align-self:stretch}.about-editorial .director-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}.about-editorial .director-copy{padding:clamp(26px,5vw,64px);align-self:center;max-width:740px}.about-editorial .director-copy h3{font-size:clamp(28px,4vw,48px)}.about-contact{display:inline-flex;align-items:center;gap:12px;margin-top:22px;color:#f8ce59;font-weight:700;min-height:44px}.about-contact:hover{text-decoration:underline}@media(max-width:800px){.about-editorial-top{grid-template-columns:1fr;gap:25px;margin-bottom:24px}.about-editorial .about-pillars{grid-template-columns:1fr;gap:10px}.about-editorial .about-pillars article+article{border-top:1px solid #e8dce9;padding-top:18px}.about-editorial .about-leadership{flex-direction:column;align-items:center;margin-top:28px}.about-editorial .director-portrait{width:100%;max-width:320px;align-self:center}.about-editorial .director-portrait img{height:auto;object-fit:contain}.about-editorial .director-copy{text-align:left;padding:24px}.about-editorial h2{font-size:clamp(32px,7vw,44px)}}
-/* Text-led institutional introduction, without duplicate studio photography. */
-.about-editorial .about-editorial-top{display:block;max-width:900px;margin:0 auto 36px;text-align:center}.about-editorial .about-intro{max-width:800px;margin:auto}.about-editorial .about-intro h2{margin:12px auto 22px}.about-editorial .about-intro p{max-width:740px;margin-inline:auto}.about-editorial .about-intro p+p{margin-top:12px}@media(max-width:800px){.about-editorial .about-editorial-top{text-align:left;margin-bottom:24px}.about-editorial .about-intro h2{margin-inline:0}.about-editorial .about-intro p{margin-inline:0}}
+/* Unified editorial layout: isolated from older section rules. */
+#sobre.about-editorial{background:#faf7fb;color:#482052;padding:clamp(40px,6vw,82px) 5%;overflow:clip}
+#sobre .about-inner{max-width:1120px;margin:0 auto}
+#sobre .about-editorial-top{display:block;margin:0 auto 30px;max-width:760px;text-align:center}
+#sobre .about-intro{margin:0;max-width:none}
+#sobre .about-intro .overline{color:#882d8e;font-size:12px;letter-spacing:.17em}
+#sobre .about-intro h2{border:0;padding:0;font-size:clamp(34px,5vw,60px);line-height:1.08;letter-spacing:-.045em;margin:10px 0 18px}
+#sobre .about-intro h2 em{font-style:normal;color:#882d8e}
+#sobre .about-intro p{font-size:clamp(15px,1.3vw,18px);line-height:1.65;margin:0;color:#654d6c}
+#sobre .about-intro p+p{margin-top:10px}
+#sobre .about-pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid #e6dce9;border-radius:14px;background:#fff;overflow:hidden}
+#sobre .about-pillars article{min-width:0;min-height:0;height:auto;padding:25px 26px;background:transparent;border:0;border-radius:0;box-shadow:none}
+#sobre .about-pillars article+article{border-left:1px solid #e6dce9}
+#sobre .about-pillars article:hover{transform:none;box-shadow:none}
+#sobre .pillar-number{display:block;font-size:12px;color:#882d8e;font-weight:800;letter-spacing:.1em}
+#sobre .about-pillars h3{font-size:22px;line-height:1.2;margin:8px 0 12px;color:#482052}
+#sobre .about-pillars p,#sobre .about-pillars li{font-size:14px;line-height:1.6;color:#654d6c}
+#sobre .about-values{display:grid;gap:6px;list-style:none;padding:0!important;margin:0}
+#sobre .about-leadership{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center;background:#fff;color:#482052;border:1px solid #e6dce9;border-radius:14px;padding:clamp(20px,3vw,32px);margin:24px 0 0}
+#sobre .director-portrait{width:100%;max-width:none;align-self:center;border-radius:9px;overflow:hidden;background:#482052}
+#sobre .director-portrait img{display:block;width:100%;height:auto;aspect-ratio:800/1067;object-fit:contain}
+#sobre .director-copy{min-width:0;max-width:620px;padding:0;text-align:left}
+#sobre .director-copy .overline{color:#882d8e}
+#sobre .director-copy h3{font-size:clamp(27px,3.4vw,40px);line-height:1.15;color:#482052;margin:7px 0}
+#sobre .director-role{color:#882d8e;margin:0 0 13px;font-size:14px}
+#sobre .director-copy p{color:#654d6c;line-height:1.65;font-size:16px}
+#sobre .about-contact{display:inline-flex;align-items:center;gap:14px;min-height:44px;padding:10px 18px;background:#6b318f;color:#fff;border-radius:8px;font-size:14px;font-weight:700;margin-top:18px}
+#sobre .about-contact:hover{background:#882d8e}
+@media(max-width:750px){#sobre .about-editorial-top{text-align:left;margin-bottom:22px}#sobre .about-pillars{grid-template-columns:1fr}#sobre .about-pillars article{padding:19px 20px}#sobre .about-pillars article+article{border-left:0;border-top:1px solid #e6dce9}#sobre .about-leadership{grid-template-columns:1fr;gap:18px;padding:20px}#sobre .director-portrait{max-width:240px;justify-self:center}#sobre .director-copy{text-align:center}#sobre .director-copy p{font-size:15px}}
