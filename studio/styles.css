@@ -9,3 +9,6 @@ input[type=checkbox]{accent-color:var(--btv-magenta)}
 input::placeholder,textarea::placeholder{color:var(--btv-muted);opacity:.85}
 input[type=file]::file-selector-button{background:var(--btv-action);border:1px solid var(--btv-border);color:white;border-radius:6px;padding:7px 10px;margin-right:8px;cursor:pointer}
 #toast{border:1px solid var(--btv-border);color:white;z-index:20}
+
+/* Mobile editorial workspace */
+button{min-height:44px}input,select,textarea{font-size:16px}.item .details{min-width:0;overflow-wrap:anywhere}#toast{max-width:calc(100vw - 30px)}dialog{max-height:90dvh}@media(max-width:650px){header{gap:8px;flex-wrap:wrap;padding:12px 4%}header a{font-size:17px}header span{font-size:13px}main{padding:22px 4%}.panel{margin:5vh auto;padding:18px}.filters input{flex:1 1 100%}.filters select{width:100%}.fields{grid-template-columns:minmax(0,1fr)}.item{padding:12px;gap:10px}dialog{width:calc(100% - 20px);padding:16px}.heading h1{font-size:24px}#save{width:100%}input[type=file]{max-width:100%}}

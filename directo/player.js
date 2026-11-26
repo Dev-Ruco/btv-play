@@ -2,7 +2,7 @@
 const $=id=>document.getElementById(id),video=$('liveVideo'),embed=$('embedPlayer'),status=$('liveStatus'),empty=$('watchEmpty'),retry=$('retry');let hls=null,db=null,busy=false,current=null,version=0;
 $('year').textContent=new Date().getFullYear();
 function setStatus(text,state='idle'){status.textContent=text;status.dataset.state=state}
-function clearPlayer(){if(hls){hls.destroy();hls=null}video.pause();video.removeAttribute('src');video.load();video.hidden=true;embed.replaceChildren();embed.hidden=true;$('goLive').hidden=true;$('fullscreen').hidden=true}
+function clearPlayer(){video.hidden=true;if(hls){hls.destroy();hls=null}video.pause();video.removeAttribute('src');video.load();video.hidden=true;embed.replaceChildren();embed.hidden=true;$('goLive').hidden=true;$('fullscreen').hidden=true}
 function unavailable(message,state='idle'){clearPlayer();empty.hidden=false;$('watchMessage').textContent=message;retry.hidden=false;setStatus(state==='error'?'Emissão indisponível':'Fora de emissão',state)}
 function ready(){empty.hidden=true;retry.hidden=true;$('fullscreen').hidden=false;setStatus('Emissão disponível')}
 function fail(){current=null;unavailable('Não foi possível reproduzir a emissão. Tenta actualizar o leitor.','error')}
@@ -29,5 +29,5 @@ retry.onclick=()=>refresh(true);$('reloadStream').onclick=()=>refresh(true);
 $('goLive').onclick=()=>{try{if(video.seekable.length){video.currentTime=Math.max(video.seekable.start(video.seekable.length-1),video.seekable.end(video.seekable.length-1)-1);video.play().catch(()=>{})}}catch{}};
 $('fullscreen').onclick=async()=>{try{const p=$('watchPlayer');if(p.requestFullscreen)await p.requestFullscreen();else if(!video.hidden&&video.webkitEnterFullscreen)video.webkitEnterFullscreen();else $('watchFeedback').textContent='Utiliza o botão de ecrã inteiro do leitor.'}catch{$('watchFeedback').textContent='Utiliza o botão de ecrã inteiro do leitor.'}};
 $('share').onclick=async()=>{try{if(navigator.share){await navigator.share({title:'BTV em directo',url:location.href});return}if(navigator.clipboard){await navigator.clipboard.writeText(location.href);$('watchFeedback').textContent='Ligação copiada.';return}}catch(e){if(e.name==='AbortError')return}$('watchFeedback').textContent=location.href};
-refresh();setInterval(()=>refresh(),30000);
+refresh();setInterval(()=>{if(!document.hidden)refresh()},30000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});window.addEventListener('online',()=>refresh());
 })();
