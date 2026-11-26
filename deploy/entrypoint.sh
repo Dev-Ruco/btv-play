@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eu
-export BTV_SUPABASE_URL BTV_SUPABASE_ANON_KEY
+export BTV_SUPABASE_URL="${BTV_SUPABASE_URL:-}" BTV_SUPABASE_ANON_KEY="${BTV_SUPABASE_ANON_KEY:-}"
 envsubst '${BTV_SUPABASE_URL} ${BTV_SUPABASE_ANON_KEY}' < /usr/share/nginx/html/deploy/config.template.js > /usr/share/nginx/html/config.js
 
 # Public origin for server-rendered social metadata. Coolify normally provides COOLIFY_URL.
