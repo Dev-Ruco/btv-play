@@ -1,7 +1,18 @@
-(()=>{'use strict';const root=document.querySelector('.hero-carousel');if(!root)return;const slides=[...root.querySelectorAll('[data-slide]')],controls=root.querySelector('.hero-controls'),dots=[...root.querySelectorAll('[data-dot]')],pause=root.querySelector('[data-pause]'),img=document.getElementById('xiluvaHeroImage');let index=0,timer,paused=matchMedia('(prefers-reduced-motion: reduce)').matches,hover=false,focus=false,visible=true,x=null;
-function show(i){index=(i+slides.length)%slides.length;slides.forEach((s,j)=>s.hidden=j!==index);dots.forEach((d,j)=>{if(j===index)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')})}
-function schedule(){clearTimeout(timer);if(!paused&&!hover&&!focus&&visible&&!document.hidden)timer=setTimeout(()=>{show(index+1);schedule()},8000)}
-function toggle(){pause.textContent=paused?'▶':'Ⅱ';pause.setAttribute('aria-label',paused?'Retomar rotação':'Pausar rotação')}
-function init(){controls.hidden=false;toggle();root.querySelector('[data-prev]').onclick=()=>{show(index-1);schedule()};root.querySelector('[data-next]').onclick=()=>{show(index+1);schedule()};dots.forEach((d,j)=>d.onclick=()=>{show(j);schedule()});pause.onclick=()=>{paused=!paused;toggle();schedule()};root.addEventListener('mouseenter',()=>{hover=true;schedule()});root.addEventListener('mouseleave',()=>{hover=false;schedule()});root.addEventListener('focusin',()=>{focus=true;schedule()});root.addEventListener('focusout',e=>{if(!root.contains(e.relatedTarget)){focus=false;schedule()}});root.addEventListener('touchstart',e=>{x=e.changedTouches[0].clientX},{passive:true});root.addEventListener('touchend',e=>{if(x!==null){const dx=e.changedTouches[0].clientX-x;if(Math.abs(dx)>55){show(index+(dx<0?1:-1));schedule()}x=null}},{passive:true});document.addEventListener('visibilitychange',schedule);if('IntersectionObserver'in window)new IntersectionObserver(([e])=>{visible=e.isIntersecting;schedule()}).observe(root);schedule()}
-img.addEventListener('load',init,{once:true});img.src=img.dataset.src;if(img.complete&&img.naturalWidth>0){img.removeEventListener('load',init);init()}
+(()=>{'use strict';
+const root=document.querySelector('.hero-carousel');if(!root)return;
+const slides=[...root.querySelectorAll('[data-slide]')],img=document.getElementById('xiluvaHeroImage'),motion=matchMedia('(prefers-reduced-motion: reduce)');
+let index=0,timer,visible=true,focus=false,hover=false,x=null,y=null,initialized=false;
+function show(i){index=(i+slides.length)%slides.length;slides.forEach((s,j)=>{const active=j===index;s.classList.toggle('is-inactive',!active);s.setAttribute('aria-hidden',String(!active));s.inert=!active;});}
+function schedule(){clearTimeout(timer);if(!motion.matches&&!focus&&!hover&&visible&&!document.hidden)timer=setTimeout(()=>{show(index+1);schedule()},6000);}
+function init(){if(initialized)return;initialized=true;slides[1].classList.add('is-inactive');slides[1].hidden=false;show(0);
+root.addEventListener('focusin',()=>{focus=true;schedule()});root.addEventListener('focusout',e=>{if(!root.contains(e.relatedTarget)){focus=false;schedule()}});
+root.addEventListener('mouseenter',()=>{hover=true;schedule()});root.addEventListener('mouseleave',()=>{hover=false;schedule()});
+root.addEventListener('touchstart',e=>{x=e.changedTouches[0].clientX;y=e.changedTouches[0].clientY},{passive:true});
+root.addEventListener('touchend',e=>{if(x!==null){const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){show(index+(dx<0?1:-1));schedule()}x=y=null}},{passive:true});
+root.addEventListener('touchcancel',()=>{x=y=null},{passive:true});
+document.addEventListener('visibilitychange',schedule);
+if(motion.addEventListener)motion.addEventListener('change',()=>{if(motion.matches)show(0);schedule()});
+if('IntersectionObserver'in window)new IntersectionObserver(([e])=>{visible=e.isIntersecting;schedule()}).observe(root);
+schedule();}
+img.addEventListener('load',init,{once:true});img.src=img.dataset.src;if(img.complete&&img.naturalWidth>0)init();
 })();
