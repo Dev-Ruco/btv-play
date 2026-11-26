@@ -126,3 +126,5 @@ footer{background:var(--btv-surface)}
 /* Official institutional copy and confirmed director portrait */
 .about-intro p+p{margin-top:12px}.about-intro{max-width:850px}.about-values{list-style:none;padding:0!important;display:grid;gap:9px}.about-values strong{color:#482052}.about-pillars article{height:100%}.director-portrait img{aspect-ratio:800/1067;object-fit:contain}.about-leadership{background:linear-gradient(125deg,#6b318f,#482052)}
 @media(max-width:750px){.about-leadership{align-items:center}.director-copy{text-align:center}.director-portrait{width:min(100%,290px)}.about-pillars article{height:auto}}
+
+.header-live{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;background:#fff;color:#602775;border:1px solid #fff;padding:10px 15px;border-radius:8px;font-size:14px;font-weight:750}.header-live:hover{background:#f5edf7}.live-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#d92f49;flex-shrink:0}.header-live:focus-visible{outline-color:#f8ce59}@media(max-width:750px){.header-live{font-size:13px;padding:9px 12px}}
