@@ -26,3 +26,5 @@ Projecto estático Docker/Nginx preparado para alojamento próprio. O site públ
 - A variável anon é pública por natureza; a segurança das publicações é garantida por RLS.
 - Este pacote contém uma nova interface pública baseada nas secções do BTV Play encontrado na Vercel, mas **não é uma cópia byte-a-byte do website original**, porque não foi possível recuperar integralmente todos os ficheiros originais. Rever visualmente antes de substituir o site actual no domínio principal.
 - O Coolify pode construir a aplicação a partir deste Dockerfile. Para `docker compose` externo, utilizar `docker compose up -d --build` após preencher `.env`.
+## Pré-visualização de partilhas
+Definir `BTV_PUBLIC_URL` no Coolify para o domínio público HTTPS, sem barra final (ex.: `https://tv.example.com`). Se não definido, é utilizado `COOLIFY_URL` quando válido. O build gera a imagem JPEG 1200×630 a partir da Hero oficial e do logótipo. As meta tags Open Graph e Twitter são preenchidas no arranque do container, sem depender de JavaScript no navegador.
