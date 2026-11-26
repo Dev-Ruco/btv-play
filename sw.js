@@ -1,0 +1,4 @@
+// Network-only service worker: never cache live streams, credentials or editorial content.
+self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
+self.addEventListener('activate',event=>event.waitUntil(self.clients.claim()));
+self.addEventListener('fetch',event=>{if(event.request.mode==='navigate'&&new URL(event.request.url).origin===self.location.origin){event.respondWith(fetch(event.request).catch(()=>new Response('<!doctype html><html lang="pt"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BTV Play</title><body style="font:16px system-ui;background:#21112d;color:white;padding:24px"><h1>BTV Play</h1><p>Sem ligação à Internet. Restabelece a ligação para continuar.</p><a style="color:white" href="/">Tentar novamente</a></body></html>',{headers:{'Content-Type':'text/html; charset=utf-8'}})))}});

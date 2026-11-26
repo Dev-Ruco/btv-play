@@ -173,3 +173,6 @@ footer{padding:24px 5%;gap:12px}
 }
 @media(max-width:360px){.program-section .program-grid,.content-grid{grid-template-columns:1fr}.mobile-nav a{font-size:10px}.header-live{padding:8px 10px}}
 @media(hover:none){.video-card:hover{transform:none}.button:hover,.filters button:hover{filter:none}}
+
+/* Official BTV brand */
+.brand{display:inline-flex;align-items:center;gap:6px!important;white-space:nowrap}.official-logo{display:block;width:44px;height:52px;object-fit:contain;flex-shrink:0}.brand-play{font-size:18px;font-weight:900;letter-spacing:.06em;color:#fff}.top{padding-top:8px;padding-bottom:8px}footer .official-logo{width:40px;height:48px}@media(max-width:600px){.top .official-logo{width:34px;height:40px}.top .brand-play{font-size:15px}.top{padding-top:7px;padding-bottom:7px}}
