@@ -1,0 +1,1 @@
+(()=>{const box=document.getElementById('directorPortrait');if(!box)return;const img=box.querySelector('img');const show=()=>{if(img.naturalWidth>0)box.hidden=false};img.addEventListener('load',show);if(img.complete)show()})();

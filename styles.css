@@ -85,7 +85,7 @@ footer{background:var(--btv-surface)}
 @media(max-width:340px){.program-section .program-grid{grid-template-columns:1fr}}
 
 /* Institutional studios gallery */
-#sobre.btv-studios{max-width:none;background:#fff;color:#482052;padding:clamp(40px,6vw,90px) max(5%,calc((100% - 1420px)/2))}
+#estudios.btv-studios{max-width:none;background:#fff;color:#482052;padding:clamp(40px,6vw,90px) max(5%,calc((100% - 1420px)/2))}
 .btv-studios .overline{color:#882d8e}
 .btv-studios .studios-intro{max-width:680px;margin-bottom:28px}
 .btv-studios h2{margin:8px 0 14px}
@@ -98,3 +98,27 @@ footer{background:var(--btv-surface)}
 .studio-photo figcaption p{font-size:14px}
 .btv-studios .studios-note{font-size:11px;color:#74677a;margin-top:14px}
 @media(max-width:650px){.studios-grid{grid-template-columns:1fr;gap:14px}.studio-photo figcaption{padding:13px 15px}.studio-photo h3{font-size:17px}.btv-studios .studios-intro{margin-bottom:20px}}
+
+/* About BTV: institutional identity and leadership */
+#sobre.btv-about{max-width:none;background:#f8f3fa;color:#482052;padding:clamp(42px,6vw,86px) max(5%,calc((100% - 1420px)/2))}
+.btv-about .overline{color:#882d8e}
+.about-intro{max-width:780px;margin-bottom:30px}
+.btv-about h2{margin:8px 0 16px}
+.btv-about p,.btv-about li{color:#654d6c;line-height:1.65;margin:0}
+.about-intro p{font-size:clamp(16px,1.5vw,19px)}
+.about-pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.about-pillars article{background:#fff;border:1px solid #e8dce9;border-radius:12px;padding:22px 24px}
+.pillar-number{font-size:13px;font-weight:800;letter-spacing:.12em;color:#882d8e}
+.about-pillars h3{font-size:23px;margin:7px 0 12px}
+.about-pillars p,.about-pillars li{font-size:15px}
+.about-pillars ul{margin:0;padding-left:18px}
+.about-leadership{display:flex;gap:clamp(24px,5vw,70px);align-items:center;margin-top:32px;padding:clamp(22px,4vw,48px);background:linear-gradient(125deg,#6b318f,#482052);border-radius:14px;color:white}
+.director-portrait{width:min(36%,300px);flex-shrink:0;overflow:hidden;border-radius:9px}
+.director-portrait[hidden]{display:none}
+.director-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+.director-copy{max-width:620px}
+.director-copy .overline{color:#f8ce59}
+.director-copy h3{font-size:clamp(27px,3vw,42px);line-height:1.15;margin:8px 0 5px}
+.director-role{display:block;color:#f0d9f2;font-size:14px;font-weight:600;margin-bottom:15px}
+.btv-about .director-copy p{color:#fff}
+@media(max-width:750px){.about-pillars{grid-template-columns:1fr;gap:12px}.about-pillars article{padding:18px 20px}.about-leadership{flex-direction:column;align-items:flex-start;margin-top:22px}.director-portrait{width:min(100%,300px);align-self:center}.about-intro{margin-bottom:20px}}
