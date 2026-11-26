@@ -21,3 +21,30 @@
 footer{background:var(--btv-surface)}
 #playerBody{background:#100b15}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.video-card{transition:none}.video-card:hover{transform:none}}
+
+/* Responsive art direction: desktop panoramic artwork, mobile portrait artwork. */
+.hero.hero-feature{display:grid;grid-template-columns:1fr;gap:0;min-height:0;padding:0;background:#f5e8f7;color:#482052;position:relative;isolation:isolate;scroll-margin-top:72px}
+.hero-feature::before,.hero-feature::after{display:none}
+.hero-feature .hero-art{display:block;grid-area:1/1;align-self:stretch;min-width:0}
+.hero-feature .hero-art img{display:block;width:100%;height:auto;aspect-ratio:1894/800;object-fit:cover}
+.hero-feature .hero-text{grid-area:1/1;align-self:center;z-index:1;width:39%;padding:clamp(20px,4vw,72px) 0 clamp(20px,4vw,72px) clamp(24px,5vw,90px)}
+.hero-feature h1{font-size:clamp(34px,4.7vw,78px);line-height:1.03;letter-spacing:-.045em;margin:14px 0 18px;color:#482052;text-wrap:balance}
+.hero-feature h1 em{color:#882d8e}
+.hero-feature .eyebrow{color:#602775;letter-spacing:.14em}
+.hero-feature p{color:#482052;font-size:clamp(14px,1.25vw,20px);line-height:1.6;max-width:34ch;margin:0}
+.hero-feature .actions{gap:10px;margin:24px 0 0}
+.hero-feature .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:11px 16px;font-size:clamp(13px,1vw,16px);font-weight:700;border-radius:8px}
+.hero-feature .button.primary{background:#6b318f;color:white;border:1px solid #6b318f}
+.hero-feature .button.secondary{background:#ffffffb8;color:#482052;border:1px solid #80538c}
+.hero-feature .button:focus-visible{outline-color:#482052}
+@media(max-width:900px){
+.hero.hero-feature{display:flex;flex-direction:column;background:#f5edf7}
+.hero-feature .hero-art{width:100%;max-width:520px;align-self:center}
+.hero-feature .hero-art img{aspect-ratio:auto;object-fit:contain}
+.hero-feature .hero-text{width:100%;max-width:600px;padding:28px 6% 36px;text-align:center;align-self:center}
+.hero-feature h1{font-size:clamp(36px,8vw,56px);margin:10px 0 12px}
+.hero-feature p{max-width:42ch;margin:auto;font-size:16px}
+.hero-feature .actions{justify-content:center;margin-top:22px}
+.hero-feature .button{font-size:15px;min-height:48px}
+}
+@media(max-width:380px){.hero-feature .actions{flex-direction:column}.hero-feature .button{width:100%}}
