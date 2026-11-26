@@ -1,0 +1,20 @@
+/* BTV — palette derived from the 2026 institutional portfolio. */
+:root{
+  color-scheme:dark;
+  --btv-magenta:#9f2a8d;
+  --btv-violet:#882d8e;
+  --btv-purple:#6b318f;
+  --btv-orange:#f56332;
+  --btv-gold:#f8ce59;
+  --btv-white:#fff;
+  --btv-bg:#21112d;
+  --btv-surface:#30183f;
+  --btv-raised:#422150;
+  --btv-border:#80538c;
+  --btv-muted:#e0cee8;
+  --btv-accent:#ffc1ee;
+  --btv-gradient:linear-gradient(160deg,var(--btv-magenta),var(--btv-violet) 48%,var(--btv-purple));
+  --btv-action:linear-gradient(120deg,#9f2a8d,#6b318f);
+}
+:focus-visible{outline:3px solid var(--btv-gold);outline-offset:4px}
+::selection{background:var(--btv-gold);color:var(--btv-bg)}
