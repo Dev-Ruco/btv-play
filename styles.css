@@ -67,3 +67,19 @@ footer{background:var(--btv-surface)}
   .hero-feature .button.primary{width:auto;min-height:46px;background:#fff;color:#602775;border:1px solid #fff;padding:10px 22px;font-size:15px;border-radius:9px}
   .hero-feature .button:focus-visible{outline-color:#f8ce59}
 }
+
+/* Independent editorial programme catalogue, available before Supabase loads. */
+#programas.program-section{max-width:none;padding:clamp(34px,5vw,76px) max(5%,calc((100% - 1420px)/2));background:#f8f3fa;color:#482052}
+.program-section .overline{color:#882d8e}
+.program-section .section-header{margin-bottom:22px}
+.program-section h2{margin-bottom:0}
+.program-section .program-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.program-tile{min-width:0;background:white;border:1px solid #e8dce9;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 3px 14px #48205209}
+.program-tile>img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#e5cbea}
+.program-details{padding:15px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.program-details h3{font-size:clamp(16px,1.4vw,21px);line-height:1.2;margin:0;color:#482052}
+.program-details p{font-size:14px;line-height:1.5;margin:0;color:#654d6c}
+.program-details .program-schedule:not([hidden]){margin-top:auto;padding-top:10px;border-top:1px solid #e8dce9;color:#793898;font-weight:650;font-size:13px}
+@media(max-width:1100px){.program-section .program-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+@media(max-width:750px){.program-section .program-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.program-details{padding:12px;gap:6px}.program-details h3{font-size:16px}.program-details p{font-size:13px;line-height:1.4}.program-section .section-header{margin-bottom:18px}.program-tile{border-radius:9px}}
+@media(max-width:340px){.program-section .program-grid{grid-template-columns:1fr}}
