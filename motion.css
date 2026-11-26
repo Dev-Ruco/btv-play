@@ -1,0 +1,40 @@
+
+/* BTV motion system — progressive enhancement; content stays visible without JS. */
+:root{--motion-ease:cubic-bezier(.22,.75,.25,1)}
+.top{transition:background .25s,box-shadow .25s}
+.top.is-scrolled{background:#30183f;box-shadow:0 4px 20px #170b2340}
+.scroll-progress{position:absolute;bottom:0;left:0;height:2px;width:100%;background:linear-gradient(90deg,#f56332,#f8ce59);transform:scaleX(0);transform-origin:left;pointer-events:none}
+.top nav a{position:relative;padding:8px 0;transition:color .2s}
+.top nav a::after{content:"";position:absolute;bottom:1px;left:0;right:0;height:2px;background:#f8ce59;transform:scaleX(0);transform-origin:left;transition:transform .25s var(--motion-ease)}
+.top nav a[aria-current],.top nav a:hover{color:#f8ce59}
+.top nav a[aria-current]::after,.top nav a:hover::after{transform:scaleX(1)}
+.header-live,.button,.watch-button,.filters button,.mobile-nav a{transition:background-color .2s,color .2s,box-shadow .2s,transform .2s}
+.header-live:active,.button:active,.watch-button:active,.filters button:active{transform:scale(.97)}
+.header-live .live-dot{box-shadow:0 0 0 0 #d92f4950;animation:btv-pulse 2.4s infinite}
+@keyframes btv-pulse{0%,100%{box-shadow:0 0 0 0 #d92f4900}45%{box-shadow:0 0 0 5px #d92f4933}}
+/* Use individual transforms so existing card hover transitions remain intact. */
+.motion-ready [data-reveal]{opacity:1;translate:0 0;transition:opacity .6s var(--motion-ease),translate .65s var(--motion-ease);transition-delay:var(--reveal-delay,0ms)}
+.motion-ready [data-reveal].reveal-away{opacity:0;translate:0 20px;transition-delay:0ms;transition-duration:.32s}
+.motion-ready [data-reveal="left"].reveal-away{translate:-22px 0}
+.motion-ready [data-reveal="right"].reveal-away{translate:22px 0}
+.motion-ready [data-reveal]:focus-within{opacity:1;translate:0 0;transition-delay:0ms}
+.program-tile,.studio-photo,.about-pillars article{transition:box-shadow .25s,border-color .25s,transform .25s}
+.motion-ready :is(.program-tile,.studio-photo,.about-pillars article)[data-reveal]{transition:opacity .6s var(--motion-ease),translate .65s var(--motion-ease),box-shadow .25s,border-color .25s,transform .25s;transition-delay:var(--reveal-delay,0ms)}
+.program-tile>img,.studio-photo img,.video-card .poster img{transition:scale .5s var(--motion-ease)}
+.program-tile,.studio-photo,.video-card .poster{overflow:hidden}
+@media(hover:hover) and (pointer:fine){.program-tile:hover,.studio-photo:hover,.about-pillars article:hover{transform:translateY(-4px);box-shadow:0 12px 26px #48205220;border-color:#b88ac5}.program-tile:hover>img,.studio-photo:hover img,.video-card:hover .poster img{scale:1.035}.header-live:hover{box-shadow:0 4px 16px #f8ce5933}}
+.hero-carousel .hero-slide:not(.is-inactive) .hero-text h1,.hero-carousel .hero-slide:not(.is-inactive) .xiluva-copy{animation:btv-caption .55s var(--motion-ease) both}
+.hero-carousel .hero-slide:not(.is-inactive) .hero-text p,.hero-carousel .hero-slide:not(.is-inactive) .hero-text .actions{animation:btv-caption .55s .1s var(--motion-ease) both}
+@keyframes btv-caption{from{opacity:.3;translate:0 9px}to{opacity:1;translate:0 0}}
+/* Retain exact artwork framing: no zoom on title-bearing covers. */
+#conteudos{max-width:none;padding-inline:max(5%,calc((100% - 1420px)/2))}
+.program-section h2,.btv-about h2,.btv-studios h2,#conteudos h2{letter-spacing:-.035em;line-height:1.15;text-wrap:balance}
+.program-section .overline,.btv-about .overline,.btv-studios .overline{letter-spacing:.14em}
+.about-pillars article{border-top:3px solid #d5a9dc}
+.about-pillars article:nth-child(2){border-top-color:#882d8e}.about-pillars article:nth-child(3){border-top-color:#f56332}
+.library-loading{grid-column:1/-1;display:flex;align-items:center;gap:12px;padding:24px;color:#e0cee8;min-height:94px}
+.loading-spinner{width:23px;height:23px;border:2px solid #80538c;border-top-color:#f8ce59;border-radius:50%;animation:btv-spin .8s linear infinite}
+@keyframes btv-spin{to{transform:rotate(360deg)}}
+.watch-info,.watch-sidebar{animation:btv-caption .45s var(--motion-ease) both}
+@media(max-width:750px){.motion-ready [data-reveal].reveal-away{translate:0 12px}.motion-ready [data-reveal]{transition-duration:.42s;transition-delay:min(var(--reveal-delay,0ms),90ms)}}
+@media(prefers-reduced-motion:reduce){.motion-ready [data-reveal],.motion-ready [data-reveal].reveal-away{opacity:1!important;translate:none!important;transition:none!important}.hero-carousel .hero-text *, .hero-carousel .xiluva-copy,.watch-info,.watch-sidebar,.header-live .live-dot,.loading-spinner{animation:none!important}.top,.top nav a::after,.button,.header-live,.mobile-nav a,.program-tile,.studio-photo,.about-pillars article,.program-tile img,.studio-photo img,.video-card .poster img{transition:none!important}.program-tile:hover,.studio-photo:hover,.about-pillars article:hover{transform:none}.program-tile:hover img,.studio-photo:hover img,.video-card:hover .poster img{scale:1}}
