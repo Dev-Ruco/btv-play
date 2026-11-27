@@ -1,6 +1,6 @@
 # BTV Play — Site público + Studio para Coolify
 
-Projecto estático Docker/Nginx preparado para alojamento próprio. O site público (`/`) e o gestor editorial (`/studio/`) utilizam o **mesmo** Supabase.
+Projecto estático Docker/Nginx preparado para alojamento próprio. O site público (`/`) e o gestor editorial (`/area-editorial-7f29c4/`) utilizam o **mesmo** Supabase.
 
 ## Instalação no servidor (Coolify)
 
@@ -9,12 +9,12 @@ Projecto estático Docker/Nginx preparado para alojamento próprio. O site públ
 3. Definir variáveis de ambiente em Coolify (Environment Variables): `BTV_SUPABASE_URL` = URL do Supabase acessível por HTTPS a partir do browser; `BTV_SUPABASE_ANON_KEY` = chave pública anon/publishable do mesmo projecto. **Nunca utilizar a chave service_role.**
 4. No projecto Supabase, executar `deploy/schema.sql` no SQL Editor. O script cria tabelas `public.btv_contents` e `public.btv_admins`, políticas RLS e buckets públicos. Rever os nomes/políticas se existirem tabelas anteriores.
 5. Em **Supabase Authentication**, criar o administrador e executar `insert into public.btv_admins(user_id) values ('UUID-DO-ADMIN');` na consola SQL (substituir o UUID). O acesso ao Studio depende da autenticação **e da autorização na base de dados**.
-6. Confirmar que o URL do site, o login em `/studio/`, a criação de um vídeo de teste e o aparecimento desse conteúdo na página principal funcionam. Publicar um vídeo numa categoria; os visitantes passam a vê-lo automaticamente.
+6. Confirmar que o URL do site, o login em `/area-editorial-7f29c4/`, a criação de um vídeo de teste e o aparecimento desse conteúdo na página principal funcionam. Publicar um vídeo numa categoria; os visitantes passam a vê-lo automaticamente.
 
 ## Rotas
 
 - `/` — TV pública, programas e biblioteca, com os vídeos publicados no Studio.
-- `/studio/` — gestão de conteúdos (login, upload, edição, publicação, destaques e ordenação).
+- `/area-editorial-7f29c4/` — gestão de conteúdos (login, upload, edição, publicação, destaques e ordenação).
 - `/health` — verificação de disponibilidade do servidor.
 
 ## Atenção
@@ -28,3 +28,6 @@ Projecto estático Docker/Nginx preparado para alojamento próprio. O site públ
 - O Coolify pode construir a aplicação a partir deste Dockerfile. Para `docker compose` externo, utilizar `docker compose up -d --build` após preencher `.env`.
 ## Pré-visualização de partilhas
 Definir `BTV_PUBLIC_URL` no Coolify para o domínio público HTTPS, sem barra final (ex.: `https://tv.example.com`). Se não definido, é utilizado `COOLIFY_URL` quando válido. A imagem JPEG de partilha é uma cópia estática da Hero oficial, sem geração durante o build. As meta tags Open Graph e Twitter são preenchidas no arranque do container, sem depender de JavaScript no navegador.
+
+## Acesso editorial reservado
+A entrada administrativa utiliza uma rota não divulgada no menu público. As antigas entradas `/studio`, `/studio/` e `/studio/index.html` devolvem 404. A rota não substitui autenticação, autorização em btv_admins nem RLS.
